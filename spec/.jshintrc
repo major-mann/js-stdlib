@@ -1,0 +1,27 @@
+{
+    "bitwise": true,
+    "eqeqeq": true,
+    "forin": true,
+    "futurehostile": true,
+    "latedef": "nofunc",
+    "noarg": true,
+    "nocomma": true,
+    "nonbsp": true,
+    "nonew": true,
+    "singleGroups": true,
+    "strict": false,
+    "undef": true,
+    "unused": true,
+    "predef": [],
+    "globals": {
+        "global": true,
+        "jasmine": true,
+        "require": true,
+        "describe": true,
+        "beforeEach": true,
+        "afterEach": true,
+        "it": true,
+        "expect": true,
+        "process": true
+    }
+}

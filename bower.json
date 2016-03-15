@@ -1,0 +1,27 @@
+{
+  "name": "js-stdlib",
+  "description": "A module containing extremely commonly used functionality",
+  "main": "build/stdlib.js",
+  "authors": [
+    "Calvin Mann <calvinmann@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "clone",
+    "extend",
+    "promise",
+    "copy",
+    "format",
+    "regex",
+    "typeof"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ]
+}
