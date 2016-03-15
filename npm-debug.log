@@ -1,0 +1,102 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish', './' ]
+2 info using npm@3.3.12
+3 info using node@v5.1.0
+4 verbose publish [ './' ]
+5 silly cache add args [ './', null ]
+6 verbose cache add spec ./
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: './',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: './',
+7 silly cache add   spec: '/Volumes/Data/Projects/Personal/js-stdlib',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/calvin/.npm/js-stdlib/1.0.2/package.tgz not in flight; packing
+9 info lifecycle js-stdlib@1.0.2~prepublish: js-stdlib@1.0.2
+10 silly lifecycle js-stdlib@1.0.2~prepublish: no script for prepublish, continuing
+11 verbose tar pack [ '/Users/calvin/.npm/js-stdlib/1.0.2/package.tgz',
+11 verbose tar pack   '/Volumes/Data/Projects/Personal/js-stdlib' ]
+12 verbose tarball /Users/calvin/.npm/js-stdlib/1.0.2/package.tgz
+13 verbose folder /Volumes/Data/Projects/Personal/js-stdlib
+14 verbose addLocalTarball adding from inside cache /Users/calvin/.npm/js-stdlib/1.0.2/package.tgz
+15 silly cache afterAdd js-stdlib@1.0.2
+16 verbose afterAdd /Users/calvin/.npm/js-stdlib/1.0.2/package/package.json not in flight; writing
+17 verbose afterAdd /Users/calvin/.npm/js-stdlib/1.0.2/package/package.json written
+18 silly publish { name: 'js-stdlib',
+18 silly publish   version: '1.0.2',
+18 silly publish   description: 'A module containing extremely commonly used functionality',
+18 silly publish   main: 'src/index.js',
+18 silly publish   scripts: { test: 'node node_modules/.bin/istanbul cover --include-all-sources jasmine' },
+18 silly publish   author: { name: 'Calvin Mann', email: 'calvinmann@gmail.com' },
+18 silly publish   license: 'MIT',
+18 silly publish   devDependencies:
+18 silly publish    { grunt: '^0.4.5',
+18 silly publish      'grunt-clean': '^0.4.0',
+18 silly publish      'grunt-contrib-clean': '^1.0.0',
+18 silly publish      'grunt-contrib-concat': '^1.0.0',
+18 silly publish      'grunt-contrib-jshint': '^1.0.0',
+18 silly publish      'grunt-curl': '^2.2.0',
+18 silly publish      'grunt-jasmine-nodejs': '^1.5.1',
+18 silly publish      'grunt-jscs': '^2.8.0',
+18 silly publish      'grunt-text-replace': '^0.4.0',
+18 silly publish      istanbul: '^0.4.2',
+18 silly publish      jasmine: '^2.4.1',
+18 silly publish      'jasmine-node': '^1.14.5',
+18 silly publish      'grunt-browserify': '^5.0.0' },
+18 silly publish   readme: '# js stdlib\nThis module is intended to provide commonly used functionality which is\ndesired in most projects.\n\n## Getting started\n### Node js\n`npm install js-stdlib`. `require(\'js-stdlib\')`.\n\n### Bower\n`bower install js-stdlib`. `window.stdlib`.\n\n## Functionality\nThe following functionality is contained within the\nlibrary:\n\n* `clone` - Deep clones any value.\n* `copy` - Shallow copies any value.\n* `epromise` - Extends the native promise with defer, and callback conversion\n    functions.\n* `extend` - Extends objects with values from other objects.\n* `format` - Provides .NET like string formatting.\n* `regex` - Provides regex string encoding and decoding.\n* `typeof` - Provides an extended typeof function.\n\n### clone(val)\nDeep copies all properties in the supplied value. This function can be used to\ncreate deep copies of objects, arrays or functions.\n\n#### clone.register()\nAdds the clone function to `Object.prototype`.\n\n#### clone.deregister()\nRemoves the clone function from `Object.prototype`.\n\n### copy(val)\nShallow copies all properties in the supplied value. This function can be used\nto create shallow copies of objects, arrays or functions.\n\n#### copy.register()\nAdds the copy function to `Object.prototype`.\n\n#### copy.deregister()\nRemoves the copy function from `Object.prototype`.\n\n### Promise(executor)\nThe extended promise type. This offers the following extensions onto the\nstandard promise object.\n\n#### Promise.defer()\nReturns an object containing the `promise`, as well as `resolve`, `reject` and\n`notify` functions.\n\n#### Promise.callback([context], func, arg1, arg2, arg3)\nCalls a function with the supplied context and arguments, and supplied an\nadditional function callback which will resolve or reject the promise returned\nfrom the function.\n\n#### promise.then(onResolved, onRejected, onNotified)\nThe `onNotified` function is added as a possible argument to the then function.\nThis function will be called when the executor `notify` function us called.\n\n#### promise.notify(onNotified)\nThe function adds a handler to be called when a notification has been received.\n\n#### promise.callback(cb)\nCalls the supplied callback when the promise is resolved or rejected.\n\n### extend(dest, src, argN)\nExtends the destination object with the properties from source. Continues\nextending through all supplied arguments.\n\n#### extend.register()\nAdds the extend function to `Object.prototype`.\n\n#### extend.deregister()\nRemoves the extend function from `Object.prototype`.\n\n### regex\n#### regex.encode(str)\nReplaces special regex characters with their escaped equivalents.\n\n#### regex.decode(str)\nReplaces escaped regex characters with their unescaped equivalents.\n\n#### regex.register()\nAdds the encode and decode functions to `RegExp.prototype`.\n\n#### regex.deregister()\nRemoves the encode and decode functions from `RegExp.prototype`.\n\n### typeOf(val)\nAn improved typeOf function. This returns the usual values from `typeof` along\nwith the following differences:\n\n* A `RegExp` retruns `regexp`.\n* A `Date` returns `date`.\n* An `Array` returns `array`.\n* `null` returns `null`.\n* `NaN` returns `nan`.\n\n#### typeOf.register()\nAdds the typeOf function to `Object.prototype`.\n\n#### typeOf.deregister()\nRemoves the typeOf function from `Object.prototype`.\n\n### format\nThis follows the .NET string, number and date formatting with some exceptions.\nLinks to the relevant .NET documentation:\n\n* [String Formatting](https://msdn.microsoft.com/en-us/library/system.string.format(v=vs.110).aspx)\n* [Number Formatting](https://msdn.microsoft.com/en-us/library/dwhawy9k(v=vs.110).aspx)\n* [Custom Number Formatting](https://msdn.microsoft.com/en-us/library/0c899ak8(v=vs.110).aspx)\n* [Date Formatting](https://msdn.microsoft.com/en-us/library/az4se3k1(v=vs.110).aspx)\n* [Custom Date Formatting](https://msdn.microsoft.com/en-us/library/8kb3ddd4(v=vs.110).aspx)\n\n#### Differences\n[TODO]\n\n### EvemtEmitter\n[TODO]\n',
+18 silly publish   readmeFilename: 'readme.md',
+18 silly publish   gitHead: '0cfa9da98846c2c9112cdfcf32dafd838f020707',
+18 silly publish   _id: 'js-stdlib@1.0.2',
+18 silly publish   _shasum: 'e8f1676d34547d3c4b6dfe6c191a564bc0b98d77',
+18 silly publish   _from: '.' }
+19 verbose getPublishConfig undefined
+20 silly mapToRegistry name js-stdlib
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry https://registry.npmjs.org/
+23 silly mapToRegistry uri https://registry.npmjs.org/js-stdlib
+24 verbose publish registryBase https://registry.npmjs.org/
+25 silly publish uploading /Users/calvin/.npm/js-stdlib/1.0.2/package.tgz
+26 verbose request uri https://registry.npmjs.org/js-stdlib
+27 verbose request sending authorization for write operation
+28 info attempt registry request try #1 at 9:20:32 AM
+29 verbose request using bearer token for auth
+30 verbose request id fc489d04e641d8ba
+31 http request PUT https://registry.npmjs.org/js-stdlib
+32 http 403 https://registry.npmjs.org/js-stdlib
+33 verbose headers { 'content-type': 'application/json',
+33 verbose headers   'cache-control': 'max-age=300',
+33 verbose headers   'content-length': '95',
+33 verbose headers   'accept-ranges': 'bytes',
+33 verbose headers   date: 'Tue, 15 Mar 2016 08:20:34 GMT',
+33 verbose headers   via: '1.1 varnish',
+33 verbose headers   connection: 'keep-alive',
+33 verbose headers   'x-served-by': 'cache-ams4131-AMS',
+33 verbose headers   'x-cache': 'MISS',
+33 verbose headers   'x-cache-hits': '0',
+33 verbose headers   'x-timer': 'S1458030032.364824,VS0,VE2387' }
+34 verbose request invalidating /Users/calvin/.npm/registry.npmjs.org/js-stdlib on PUT
+35 error publish Failed PUT 403
+36 verbose stack Error: "You cannot publish over the previously published version 1.0.2." : js-stdlib
+36 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+36 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+36 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+36 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:198:22)
+36 verbose stack     at emitTwo (events.js:87:13)
+36 verbose stack     at Request.emit (events.js:172:7)
+36 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1082:10)
+36 verbose stack     at emitOne (events.js:82:20)
+36 verbose stack     at Request.emit (events.js:169:7)
+36 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1009:12)
+37 verbose statusCode 403
+38 verbose pkgid js-stdlib
+39 verbose cwd /Volumes/Data/Projects/Personal/js-stdlib
+40 error Darwin 15.3.0
+41 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish" "./"
+42 error node v5.1.0
+43 error npm  v3.3.12
+44 error code E403
+45 error "You cannot publish over the previously published version 1.0.2." : js-stdlib
+46 error If you need help, you may report this error at:
+46 error     <https://github.com/npm/npm/issues>
+47 verbose exit [ 1, true ]
